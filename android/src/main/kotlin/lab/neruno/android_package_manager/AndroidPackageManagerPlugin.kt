@@ -628,18 +628,14 @@ class AndroidPackageManagerPlugin: FlutterPlugin, MethodCallHandler, ActivityAwa
                 result,
                 flagFactory = { flags -> ApplicationInfoFlags.of(flags) },
                 resultBuilder = { packageName, flags ->
-                    result.success(
-                        packageManager.getApplicationLabel(
-                            packageManager.getApplicationInfo(packageName, flags)
-                        ).toString()
-                    )
+                    packageManager.getApplicationLabel(
+                        packageManager.getApplicationInfo(packageName, flags)
+                    ).toString()
                 },
                 api33ResultBuilder = { packageName, flags ->
-                    result.success(
-                        packageManager.getApplicationLabel(
-                            packageManager.getApplicationInfo(packageName, flags)
-                        ).toString()
-                    )
+                    packageManager.getApplicationLabel(
+                        packageManager.getApplicationInfo(packageName, flags)
+                    ).toString()
                 },
             )
         } catch (ex: PackageManager.NameNotFoundException) {
